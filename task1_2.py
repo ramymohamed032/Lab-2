@@ -30,3 +30,13 @@ while True:
                             f"{row[1]} "
                             f"(Author: {row[2]})"
                         )
+                    else:
+                        print(
+                            f"{row[1]} "
+                            f"(Author: {row[2]})\n   "
+                            f"Status: {RED}Access denied{END}: "
+                            f"You can download only books dated to 1997-2000"
+                        )
+
+        if count == 0:
+            print('Nothing found.')
