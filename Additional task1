@@ -9,3 +9,20 @@ import xml.etree.ElementTree as ET
 top_books_downloads = [0] * 20
 top_books_name = [""] * 20
 top20_books = [""] * 20
+
+# Open and read the CSV file
+with open('books-en.csv', 'r', encoding='ISO-8859-1') as csvfile:
+    file = reader(csvfile, delimiter=';')
+    books_data = [i for i in file]
+    books_data.pop(0)  # Remove the header row
+
+    # Find top 20 books based on download count
+    for row in range(20):
+        for book in books_data:
+            # Check if the book's download count is higher and if it hasn't been added to top_books_name
+            if int(book[5]) > top_books_downloads[row] and book[1] not in top_books_name:
+                top_books_downloads[row] = int(book[5])
+                top_books_name[row] = book[1]
+
+        # Store the result in top20_books
+        top20_books[row] = f"{top_books_name[row]} - {top_books_downloads[row]} downloads"
