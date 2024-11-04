@@ -26,3 +26,29 @@ with open('books-en.csv', 'r', encoding='ISO-8859-1') as csvfile:
 
         # Store the result in top20_books
         top20_books[row] = f"{top_books_name[row]} - {top_books_downloads[row]} downloads"
+
+# Display the top 20 books
+print("Top 20 Most Popular Books:")
+count = 0
+for book in top20_books:
+    count += 1
+    print(f"{count}. {book}")
+
+# Part 2: Processing currency.xml
+
+# Initialize lists for CharCode and Value
+char_codes = []
+values = []
+
+# Parse the XML file and populate the lists
+tree = ET.parse('currency.xml')
+root = tree.getroot()
+
+for valute in root.findall('Valute'):
+    # Extract CharCode and Value for each currency
+    char_code = valute.find('CharCode').text
+    value = valute.find('Value').text.replace(',', '.')  # Replace commas for float conversion
+    
+    char_codes.append(char_code)
+    values.append(float(value))
+
