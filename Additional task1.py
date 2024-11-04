@@ -16,5 +16,6 @@ with open('books-en.csv', 'r', encoding='windows-1251') as csvfile:
         publishers.append(row[4])  # Assuming publisher is in column index 4
 
 # Display each unique publisher
+print("Unique Publishers:")
 for publisher in set(publishers):
     print(publisher)
