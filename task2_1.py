@@ -1,4 +1,4 @@
-'''Module providing functions working with xml files'''
+'''Module providing functions working with XML files'''
 
 import xml.dom.minidom as minidom
 
@@ -8,7 +8,7 @@ with open('currency.xml', 'r', encoding='windows-1251') as xml_file:
 
 # Parse the XML file
 dom = minidom.parseString(xml_data)
-dom.normalize()  # Optimize XML structure
+dom.normalize()  # Optimize XML structure for processing
 
 # Get all 'Valute' elements
 elements = dom.getElementsByTagName('Valute')
@@ -33,8 +33,9 @@ for node in elements:
                     value = float(child.firstChild.data.replace(',', '.'))
 
     # Append the extracted CharCode and Value to their respective lists
-    char_codes.append(char_code)
-    values.append(value)
+    if char_code and value:  # Only add if both CharCode and Value are found
+        char_codes.append(char_code)
+        values.append(value)
 
 # Display the results
 print("CharCodes:", char_codes)
