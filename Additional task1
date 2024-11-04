@@ -52,3 +52,7 @@ for valute in root.findall('Valute'):
     char_codes.append(char_code)
     values.append(float(value))
 
+# Display the lists
+print("CharCodes:", char_codes)
+print("Values:", values)
+#print("values:", values)
