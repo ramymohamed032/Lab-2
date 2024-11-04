@@ -11,9 +11,9 @@ top_books_name = [""] * 20
 top20_books = [""] * 20
 
 # Open and read the CSV file
-with open('books-en.csv', 'r', encoding='ISO-8859-1') as csvfile:
+with open('books-en.csv', 'r', encoding='windows-1251') as csvfile:
     file = reader(csvfile, delimiter=';')
-    books_data = [i for i in file]
+    books_data = [row for row  in file]
     books_data.pop(0)  # Remove the header row
 
     # Find top 20 books based on download count
@@ -29,10 +29,9 @@ with open('books-en.csv', 'r', encoding='ISO-8859-1') as csvfile:
 
 # Display the top 20 books
 print("Top 20 Most Popular Books:")
-count = 0
-for book in top20_books:
-    count += 1
-    print(f"{count}. {book}")
+for idx, book in enumerate(top20_books, 1):
+    print(f"{idx}. {book}")
+
 
 # Part 2: Processing currency.xml
 
