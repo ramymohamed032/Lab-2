@@ -1,0 +1,11 @@
+'''Module for processing books-en.csv and currency.xml based on Variant 5 requirements'''
+
+from csv import reader
+import xml.etree.ElementTree as ET
+
+# Part 1: Processing books-en.csv
+
+# Lists to store top 20 books by download count
+top_books_downloads = [0] * 20
+top_books_name = [""] * 20
+top20_books = [""] * 20
