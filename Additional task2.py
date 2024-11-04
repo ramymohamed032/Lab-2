@@ -54,4 +54,3 @@ for valute in root.findall('Valute'):
 # Display the lists
 print("CharCodes:", char_codes)
 print("Values:", values)
-#print("values:", values)
